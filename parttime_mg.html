@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="main_mg.css">
+      <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+      <title>아르바이트 관리</title>
+      <meta charset="utf-8" >
+      <style>
+          table {
+               font-family: 'Hanna', serif;
+               padding : 20px;
+               background-color : white;
+               border-collapse: collapse;
+               text-align:center;
+          }
+          td,th {
+               text-align : left;
+               padding: 5px;
+               height: 15px; width: 100px
+          }
+          thead > tr{                            /* <thead>의 모든 셀에 적용 */
+               background : darkgray;
+               color : yellow;
+          }
+          tr:nth-child(even) {       /* 짝수 <tr>에 적용 */
+               background: aliceblue;
+          }
+          a:link {
+               text-decoration: none;
+               color : black;
+          }
+          a:visited {
+               text-decoration: none;
+               color : black;
+          }
+          a:hover {
+               text-decoration: underline;
+               color : black;
+          }
+      </style>
+   </head>
+   <script type="text/javascript">
+      $(document).ready(function(){
+         $("#header").load("upbar_mg.html");
+      });
+   </script>
+   <body background="picture/backcolor.jpg">
+   <body>
+      <div id="page-wrapper">
+         <!-- Header -->
+
+         <div id="header">
+         </div>
+         <!-- body -->
+         <div id="body-wrapper">
+            <center>
+               <div id="List" style="background-color: white; max-width:60%;min-width:900px;height:auto;font-size:15px;">
+                <p style="padding:15px;">
+                   <table>
+                      <thead>
+                         <tr><th>번호</th><th>기간</th><th>성별</th><th>이름</th><th>전화번호</th><th>희망급여</th><th>근무시간</th><th>자기소개</th><th>삭제</th></tr>
+                      </thead>
+                     <?php
+                  $conn = mysql_connect('localhost','root','apmsetup');
+                  mysql_select_db('soolgan',$conn);
+                  $query = "select * from parttime";
+                  $result = mysql_query($query,$conn);
+                  while ($row = mysql_fetch_array($result)){
+                           echo '<tr style='.''.'>';
+                    echo '<td style='.'"width:5%;padding:7px;"'.'>'.$row[0].'</td>'.
+                           '<td style='.'"width:10%;padding:7px;"'.'>'.$row[1].'</td>'.
+                           '<td style='.'"width:10%;padding:7px;"'.'>'.$row[2].'</td>'.
+                           '<td style='.'"width:10%;padding:7px;"'.'>'.$row[3].'</td>'.
+                           '<td style='.'"width:15%;padding:7px;"'.'>'.$row[4].'</td>'.
+                           '<td style='.'"width:10%;padding:7px;"'.'>'.$row[5].'</td>'.
+                           '<td style='.'"width:10%;padding:7px;"'.'>'.$row[6].'</td>'.
+                           '<td style='.'"width:25%;padding:7px;"'.'>'.$row[7].'</td><td>'.'<a href ="del_parttime_mg.php?Num='.$row[0].'">'.'삭제</td>';
+                           echo '</tr>';
+                  }
+                ?>
+                  </table>
+                  </p>
+          </div>
+          </center>
+         </div>
+      </div>
+   </body>
+</html>

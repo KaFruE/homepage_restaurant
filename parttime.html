@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+   <head>
+    <link rel="stylesheet" href="main.css">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>아르바이트 지원</title>
+    <meta charset="utf-8">
+     <style>
+       @keyframes textColorAnimation {
+          0% {  color : blue;}
+          30% {  color : green;}
+          100% { color : red;}
+          }
+          h1 {font-family : "arial black";
+              animation-name: textColorAnimation;
+              animation-duration: 5s;
+              animation-iteration-count: infinite;
+              text-align : center;
+          }
+          pre {background-color : orange; border-radius : 20px; font-family : "휴먼편지체";}
+          form {background-color : white;}
+          p { font-family : "휴먼편지체"; text-indent : 1em; font-size : 1em;}
+          y { color : blue;}
+               table { color : blue;}
+          j { font-family : "휴먼편지체";}
+      </style>
+   </head>
+   <script type="text/javascript">
+      $(document).ready(function(){
+         $("#header").load("up_bar.html");
+         $("#footer").load("down.bar.html");
+      });
+   </script>
+   <body background="picture/back4.png">
+   <body>
+      <div id="page-wrapper">
+         <!-- Header -->
+
+         <div id="header">
+         </div>
+         <!-- body -->
+         <div id="body-wrapper">
+            <body style="background-color : black">
+            <h1><strong>아르바이트 지원</strong></h1>
+            <form action='parttime_post.php' name='parttime_table' method='post' style="padding:10px;">
+               <y>희망기간</y> <input type="radio" name="grade" value="1">
+                  <j>1 ~ 3개월</j>
+               <input type="radio" name="grade" value="2">
+                  <j>3 ~ 6개월</j>
+               <input type="radio" name="grade" value="3">
+                  <j>6 ~ 12개월</j>
+               <input type="radio" name="grade" value="4">
+                  <j>1년 이상</j><br><br>
+               <y>성별</y> <input type="radio" name="gender" value="1">
+                  <j>남</j>
+               <input type="radio" name="gender" value="2">
+                  <j>여</j>
+                           <br><br>
+                  <table>
+               <tr><th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                         이름
+               <input name="name" type ='text' cols="5" rows="1" style="width:80px;">
+                   </th>&nbsp;&nbsp;
+
+               <th>전화번호
+               <input name="phoneNum" type ='text' cols="15" rows="1" style="width:100px;">
+                   </th>&nbsp;&nbsp;
+
+               <th>희망급여(원/시간)
+               <input name="HopePay" type ='text' cols="8" rows="1" style="width:80px;">
+                  </tr></th></table><br><br>
+
+               <y>근무시간</y> <input type="radio" name="time" value="0">
+                  <j>오전(오픈)</j>
+               <input type="radio" name="time" value="1">
+                  <j>오후(마감)</j>
+               <input type="radio" name="time" value="2">
+                  <j>상관없음</j><br><br>
+
+               <y>자기소개</y>
+               <textarea cols="50" name='produce'rows="10" placeholder="400자 내외로 작성해주세요."></textarea><br />
+               <input type="submit" value="지원하기" style="margin: 5px;"/><br />
+            </form>
+            </body>
+
+         </div>
+
+         <div id="footer">
+         </div>
+
+      </div>
+   </body>
+</html>

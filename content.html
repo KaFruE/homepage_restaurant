@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background: url(picture/back4.png) no-repeat;
+      background-size: cover
+    }
+  </style>
+  <link rel="stylesheet" href="main.css?ver=5">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <title>자유 게시판</title>
+  <meta charset="UTF-8">
+
+</head>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#header").load("up_bar.html");
+    $("#footer").load("down.bar.html");
+  });
+</script>
+<script type="text/javascript">
+        function insertPopup(num) {
+          var pop = "popup.html?Num="+num;
+            // window.name = "부모창 이름";
+            window.name = "MemberServlet.do";
+
+            // window.open("자식창 이름", "불러올 자식 창의 닉네임", "팝업창 옵션");
+            window.open(pop, "insert",
+                    "width = 450, height = 320, resizable = no, scrollbars = no, status = no");
+        }
+</script>
+
+<body background="picture/back4.png">
+
+  <body>
+    <div id="page-wrapper">
+      <!-- Header -->
+
+      <div id="header">
+      </div>
+
+      <div id="contentWrapper" align='center' style="background='white';width='50%';">
+        <?php
+        $Num = $_GET['Num'];
+        $conn = mysql_connect('localhost','root','apmsetup');
+        mysql_select_db('soolgan',$conn);
+        $query = "select * from free_board where text_num=$Num";
+        $result = mysql_query($query,$conn);
+        $Link = 'comment_post.php?Num='.$Num;
+        $row=mysql_fetch_array($result);
+        ?>
+
+          <table class="content">
+            <form action='<?php echo $Link; ?>' name='comment_table' method='post'>
+            <tr style="border-bottom:1px solid;">
+              <th scope="row" style="border">제목</th>
+              <td><?php echo $row[1];?></td>
+            </tr>
+            <tr style="border-bottom:1px solid;">
+              <th scope="row" class="even" >글쓴이</th>
+              <td class="even"><?php echo $row[2];?></td>
+            </tr>
+            <tr style="border-bottom:1px solid;">
+              <th style="text-align:center;">
+                  <td colspan=2 ><?php echo $row[5];?></td>
+              </th>
+            </tr>
+              <?php
+              $query = "select * from comment_".$Num." order by c_num DESC";
+              $result = mysql_query($query,$conn);
+              $tmp = "del_myComment.php?Num=";
+              while($row = @mysql_fetch_array($result)){
+                echo '<tr style="font-size:70%;">';
+                echo '<th>'.$row[1].'</th>';
+                echo '<td>'.$row[3].'&nbsp&nbsp&nbsp'.$row[4]."&nbsp".'<a href=del_myComment.php?C_num='.$Num.'&Num='.$row[0].'>X</a></td>';
+                echo '</tr>';
+              }
+              ?>
+            </tr>
+            <tr style="border-bottom:1px solid;">
+              <th scope="row">댓글쓰기</th>
+                <td><input class='writter' name='writter' type='text' placeholder="작성자" col='15'/>
+                  <input class='pass' name='pass' type='password' placeholder="비밀번호" col='15'/></td>
+            </tr>
+            <tr >
+              <th scope="row"></th>
+                <td ><textarea class="comment" name='comment' cols='30' rows="3" placeholder="댓글을 입력해주세요." style="resize:none;overflow:hidden;"></textarea>
+                  <input type="submit" value="입력" style="height: 50px;margin-left:5px;"/></td>
+            </tr>
+            </form>
+          </table>
+          <?php  //글지우기
+            $del_Link = 'del_comment.php?Num='.$Num;
+          ?>
+          <form action='<?php echo $del_Link; ?>' name='comment_table' method='post'>
+            <input type="submit" value="삭제" style="height: 50px;margin-left:5px;"/>
+          </form>
+      </div>
+
+      <div id="footer">
+      </div>
+
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="main_mg.css">
+      <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+      <title>고객의 소리 관리</title>
+      <meta charset="utf-8" >
+      <style>
+         table {
+            font-family: 'Hanna', serif;
+            padding : 20px;
+            background-color : white;
+            border-collapse: collapse;
+            text-align:center;
+         }
+         td,th {
+            text-align : left;
+            padding: 5px;
+            height: 15px; width: 100px
+         }
+         thead > tr{                            /* <thead>의 모든 셀에 적용 */
+            background : darkgray;
+            color : yellow;
+         }
+         tr:nth-child(even) {       /* 짝수 <tr>에 적용 */
+            background: aliceblue;
+         }
+         a:link {
+            text-decoration: none;
+            color : black;
+         }
+         a:visited {
+            text-decoration: none;
+            color : black;
+         }
+         a:hover {
+            text-decoration: underline;
+            color : black;
+         }
+      </style>
+   </head>
+   <script type="text/javascript">
+      $(document).ready(function(){
+         $("#header").load("upbar_mg.html");
+      });
+   </script>
+   <body background="picture/backcolor.jpg">
+   <body>
+      <div id="page-wrapper">
+         <!-- Header -->
+
+         <div id="header">
+         </div>
+         <!-- body -->
+         <div id="body-wrapper">
+               <center>
+                  <div id="List" style="background-color: white; max-width:40%;min-width:700px;height:auto;font-size:15px;">
+                   <p style="padding:15px;">
+                      <table>
+                         <thead>
+                            <tr><th>글번호</th><th>성별</th><th>호감 메뉴</th><th>비호감 메뉴</th><th>삭제버튼</th></tr>
+                         </thead>
+                        <?php
+                     $conn = mysql_connect('localhost','root','apmsetup');
+                     $db = mysql_select_db('soolgan',$conn);
+                     $query = "select * from requirements";
+                     $result = mysql_query($query,$conn);
+                     while ($row = mysql_fetch_array($result)){
+                              echo '<tr style='.''.'>';
+                       echo '<td style='.'"width:10%;padding:5px;"'.'>'.$row[0].'</td>'.
+                              '<td style='.'"width:10%;padding:5px;"'.'>'.$row[1].'</td>'.
+                              '<td style='.'"width:10%;padding:5px;"'.'>'.$row[2].'</td>'.
+                              '<td style='.'"width:25%;padding:5px;"'.'>'.$row[3].'</td>'.
+															'<td style='.'"width:25%;padding:5px;"'.'>'.'<a href ="del_survay_mg.php?Num='.$row[0].'">'.삭제.'</td>';
+                              echo '</tr>';
+
+                     }
+                   ?>
+                     </table>
+                     </p>
+             </div>
+             </center>
+         </div>
+      </div>
+   </body>
+</html>

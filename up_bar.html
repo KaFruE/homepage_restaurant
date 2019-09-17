@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <Script>
+    function pwChk() {
+        if (document.frm.pw.value == 'fuckyou') {
+          var button = document.createElement("input");
+          button.setAttribute("type", "button");
+          button.setAttribute("value", "Click");
+          button.onclick = location.href='management.html';
+        } else {
+          alert("No Access!!")
+        }
+    }
+  </Script>
+  <body>
+    <nav id="nav">
+      <ul>
+          <a href="index.html"><img class="trademark" src="picture/trademark.png" width:"40px" height="40px" style="margin-right:1500px"/></a>
+        <li class="topmenu"><a href="#"style="color:white; font-size: 20px;"><strong>더보기</strong></a>
+          <ul>
+            <li class="submenuLink"><a href="explain.html">술간소개</a></li>
+            <li class="submenuLink"><a href="interial.html">가게내부</a></li>
+          </ul>
+        </li>
+        <li class="topmenu"><a href="menu.html"style="color:white; font-size: 20px;"><strong>메뉴</strong></a></li>
+        <li class="topmenu"><a href="event.html"style="color:white; font-size: 20px;"><strong>이벤트</strong></a></li>
+        <li class="topmenu"><a href="#"style="color:white; font-size: 20px;"><strong>기타</strong></a>
+          <ul>
+                  <li class="submenuLink"><a href="free_board_List.html?page=0">자유 게시판</a></li>
+            <li class="submenuLink"><a href="parttime.html">아르바이트지원</a></li>
+            <li class="submenuLink"><a href="map.html">오시는 길</a></li>
+          </ul>
+        <li><a href="survay.html"style="color:white; font-size: 20px;"><strong>고객의소리</strong></a></li>
+        <li>
+          <form name="frm" id="frm">
+            <input type="text" size=12 name="pw">
+            <input type="button" value="admin" onclick="pwChk()">
+          </form>
+        </li>
+      </ul>
+      </nav>
+  </body>
+</html>

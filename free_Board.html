@@ -1,0 +1,86 @@
+<HTML>
+  <HEAD>
+    <link rel="stylesheet" href="main.css">
+      <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>술간</title>
+    <meta charset="utf-8" />
+    <!-- 위에글씨 설정 -->
+    <style>
+    body{background:url(picture/back4.png) no-repeat; background-size:cover}
+      @keyframes textColorAnimation {
+       0% {  color : blue;}
+       30% {  color : green;}
+       100% { color : red;}
+       }
+       h1 {font-family : "arial black";
+             animation-name: textColorAnimation;
+             animation-duration: 5s;
+             animation-iteration-count: infinite;
+             text-align : center;
+             color : brown;
+       }
+       pre {background-color : orange; border-radius : 20px; font-family : "휴먼편지체";}
+       form {background-color : pink; padding: 5px;}
+     tr { color : white; font-family : "휴먼편지체"; text-indent : 1em; font-size : 1em;}
+       p { color : white; font-family : "휴먼편지체"; text-indent : 1em; font-size : 1em;}
+       y { color : blue;}
+       j { font-family : "휴먼편지체";}
+      </style>
+
+    <meta charset="utf-8" />
+    <!-- 기존 자유게시판 개발 (규연) -->
+    <style>
+    html,body{
+      margin: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .body{
+      align-content: center;
+    }
+    .freeboard_draft{
+      border: 1px solid ;
+      padding: 10px;
+      width:50%;
+      height: auto;
+    }
+    .content,.title,.writter{
+      resize: none;
+    }
+    </style>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $("#header").load("up_bar.html");
+        $("#footer").load("footer.html");
+      });
+    </script>
+  </HEAD>
+  <body>
+      <body id="current">
+          <div id="page-wrapper">
+             <!-- Header -->
+
+             <div id="header">
+             </div>
+          <center>
+            <H1><b>자유게시판</b></H1>
+
+        <div class="freeboard_draft">
+          <form action='free_board_post.php' name='review_table' method='post' >
+            <table>
+              <tr><th>작성자 : &nbsp;&nbsp;&nbsp;<input class='writter' type ='text' name='writter' cols="10" rows="1" ></th></tr>
+              <tr><th>비밀번호 : <input class='pass' type ='password' name='pass' cols="10" rows="1"></th></tr>
+              <tr><th>제목 : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input class='title' type ='text' name='title' cols="20" rows="1"></th></tr>
+            </table>
+            <p>
+              <label>내용 : </label><textarea class='content' name='content' cols='30' rows="15" placeholder="400자 내외로 작성해주세요."></textarea><br />
+            </p>
+          <center><input type="submit" value="글쓰기"/><br />
+          </form>
+          </center>
+        </div>
+
+      <div id="footer">
+      </div>
+  </body>
+</HTML>

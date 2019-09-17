@@ -1,0 +1,209 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+@import url(http://fonts.googleapis.com/earlyaccess/jejuhallasan.css);
+@import url(http://fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+@import url(http://fonts.googleapis.com/earlyaccess/kopubbatang.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanummyeongjo.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+              /* ↑↑↑ 폰트 적용하기 위해 링크 끌어오는 코드 ↑↑↑ */
+
+h1{
+  font-family: 'Jeju Hallasan', serif;  /* 흥업사거리 대표 술집, 술간! */
+}
+
+html{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+body {
+  line-height: 1;
+  -webkit-text-size-adjust: none;
+  background:url(picture/back3.jpg) no-repeat center center fixed;      /* 윈도우 크기에 맞게 배경 사진크기 변화 */
+  background-size:cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+#header {
+  font-family: 'Jeju Gothic', serif;   /* 메인메뉴 폰트 */
+  text-align: center;
+}
+#header h1 {
+  color: #252122;
+  font-weight: 900;
+  font-size: 2.5em;
+  letter-spacing: -0.035em;
+  margin: 0 0 1em 0;
+}
+#nav > ul img{      /* 술간 로고 부분 */
+  width: 200px;
+  height: 40px;
+  margin-right:1500px;
+}
+#nav > ul {
+  text-align: center;
+  list-style-type: none;
+  background-color : rgba(0, 0, 0, 0.5);  /* 메뉴바 반투명 */
+  width : 100%;
+  height : 90px;
+}
+#nav > ul > li {
+    display: inline-block;
+    font-style: ;                  /* 메인메뉴 항목 폰트(스타일) */
+    margin: 0 1em 0em 1em;
+    position: relative;
+  }
+#nav > ul > li > ul {
+      position:absolute;     /* html의 flow에 영향을 미치지 않게 absolute 설정 */
+        height: 0px;            /* 초기 높이는 0px로 설정 */
+        overflow: hidden;       /* 실 내용이 높이보다 커지면 해당 내용 감춤 */
+        transition: height .2s; /* height를 변화 시켰을 때 0.2초간 변화 되도록 설정(기본) */
+        -webkit-transition: height .2s; /* height를 변화 시켰을 때 0.2초간 변화 되도록 설정(구버전 크롬/사파라ㅣ) */
+        -moz-transition: height .2s; /* height를 변화 시켰을 때 0.2초간 변화 되도록 설정(구버전 파폭) */
+        -o-transition: height .2s; /* height를 변화 시켰을 때 0.2초간 변화 되도록 설정(구버전 오페라) */
+    }
+
+    #nav > ul > li > a {
+      border-radius: 10px;              /* 메인메뉴 항목 테두리 10px 현섭 */
+      color: #5d5d5d;
+      text-decoration: none;
+      padding: 0.6em 1.2em 0.6em 1.2em;
+      -moz-transition: background-color .25s ease-in-out;
+      -webkit-transition: background-color .25s ease-in-out;
+      -ms-transition: background-color .25s ease-in-out;
+      transition: background-color .25s ease-in-out;
+      outline: 1;
+    }
+  #nav > ul > li > ul >li{
+    border-radius: 10px;
+    color: #5d5d5d;
+    text-decoration: none;
+    padding: 0.6em 1.2em 0.6em 1.2em;  /* 메뉴항목들 사이의 간격 현섭 */
+    margin-top: -1px
+  }
+  #nav > ul > li > ul >li>a:hover{     /* 메뉴 항목에 마우스를 올릴 시 폰트 115% 현섭 */
+    font-size : 115%;
+    color : #F44336;
+  }
+  #nav > ul > li > ul >li>a{
+    text-decoration: none;
+    color : black;
+  }
+  #nav > ul > li:hover >a{             /* 메인메뉴 색상 지정 현섭 */
+    background: #F44336;
+  }
+  #nav > ul > li:hover > ul{
+    border-radius: 10px;               /* 메뉴 항목 테두리 10px 현섭 */
+    position: absolute;
+    background: #f3f3f3;
+    width: 160px;
+    height: auto;
+    padding: 0.5em;
+  }
+  #body-wrapper > table tr > td > p > a{ /*메뉴판 설명 글자크기*/
+      font-size: 25px;
+  }
+  #body-wrapper > li{                  /* 음식설명 폰트 */
+    font-family: 'Hanna', serif;
+    color:white;
+    font-size: 25px;
+  }
+  #foodmenu img{                  /* 음식설명 사진 */
+    width:400px;
+    height: 200px;
+  }
+  #food img{
+    width:200px;
+    height: 200px;
+  }
+    #body-int > ul > li img{     /* 인테리어 사진 */
+      width:500px;
+      height: 500px;
+    }
+    #body-int > ul > li > a{     /* 인테리어 사진 */
+      display: inline-block;
+      font-style: italic;
+      margin: 1em;
+    }
+/*body*/
+#body-wrapper{
+  text-align: center;
+  margin: 2em;
+}
+#body-wrapper > ul > li{
+  display: inline-block;
+  font-style: italic;
+  margin: 2em;
+}
+#body-wrapper .leftphoto{
+  /*width: auto;height: auto;*/
+  background-size: contain;
+  max-width: 500px;
+  max-height: 400px;
+}
+#body-wrapper .rightphoto{
+/*width: auto;height: auto;*/
+background-size: contain;
+  max-width: 500px;
+  max-height: 400px;
+}
+
+/*게시판 내용*/
+#contentWrapper > table{
+  max-width: 50%;
+  min-width: 500px;
+}
+#contentWrapper > table.content {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin: 20px 10px;
+    background: #efefef;
+}
+#contentWrapper > table.content th {
+    width: 130px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+}
+#contentWrapper > table.content td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+}
+#contentWrapper > table.content .even {
+    background: #efefef;
+}
+
+#footer{text-align: center;}
+
+#footer>p { color : white; font-size : 20px;}
+#footer.t { color : white;}
+#footer>h1 { color : white;}
+#footer { background-color : black;}
+
+/* 미디어 쿼리를 이용한 사이즈 조종 시작 부분 */
+
+@media (max-width: 1000px),(max-height: 700px) {}
+
+@media (max-width: 500px),(max-height: 500px) {
+
+#nav > ul img{      /* 술간 로고 부분 */
+
+width: 70px;
+height: 30px;
+margin-right:1500px;
+}
+}
+
+@media (max-width: 250px){}

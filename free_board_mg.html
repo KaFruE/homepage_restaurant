@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="main_mg.css">
+      <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+      <title>자유게시판 관리</title>
+      <meta charset="utf-8" >
+      <style>
+         table {
+            font-family: 'Hanna', serif;
+            padding : 20px;
+            background-color : white;
+            border-collapse: collapse;
+            text-align:center;
+         }
+         td,th {
+            text-align : left;
+            padding: 5px;
+            height: 15px; width: 100px
+         }
+         thead > tr{                            /* <thead>의 모든 셀에 적용 */
+            background : darkgray;
+            color : yellow;
+         }
+         tr:nth-child(even) {       /* 짝수 <tr>에 적용 */
+            background: aliceblue;
+         }
+         a:link {
+            text-decoration: none;
+            color : black;
+         }
+         a:visited {
+            text-decoration: none;
+            color : black;
+         }
+         a:hover {
+            text-decoration: underline;
+            color : black;
+         }
+      </style>
+   </head>
+   <script type="text/javascript">
+      $(document).ready(function(){
+         $("#header").load("upbar_mg.html");
+      });
+   </script>
+   <body background="picture/backcolor.jpg">
+   <body>
+      <div id="page-wrapper">
+         <!-- Header -->
+
+         <div id="header">
+         </div>
+         <!-- body -->
+         <div id="body-wrapper">
+               <center>
+             <div id="List" style="background-color: white;max-width:40%;min-width:700px;height:auto;font-size:15px;">
+                  <p style="padding:15px;">
+                     <table>
+                        <thead>
+                           <tr><th>글번호</th><th>제목</th><th>작성자</th><th>시간</th></tr>
+                        </thead>
+
+                        <?php
+
+                    include 'dbconn.php';
+
+                         $i = 0;
+                   $j = 0;
+                   $tmp=0;
+                   pageAdd($i);
+                   while ($row = mysql_fetch_array($result)){
+                     $List_array[$i][$j]='<td style='.'"width:5%;border-left:1px solid;solid;padding:5px;"'.'>'.$row[0].
+                               '<td style='.'"width:20%;solid;padding:5px;"'.'>'.'<a href ="content_mg.html?Num='.$row[0].'">'.$row[1].'</a>'.
+                                 '<td style='.'"width:7%;solid;padding:5px;"'.'>'.$row[2].'</td>'.
+                                 '<td style='.'"width:10%;padding:5px;"'.'>'.$row[4].'</td>'.'</tr>';
+                     $j++;
+                     $j=$j%15;
+                     if($j%15==0){
+                       $i++;
+                       pageAdd($i);
+                     }
+                   }
+
+                   $Num = $_GET['page'];
+                   $t=0;
+
+                         while($List_array[$Num][$t]){
+                     echo $List_array[$Num][$t];
+                     $t++;
+                   }
+                   ?>
+                     </table>
+                     </p>
+             </div>
+
+               <div id='pagelist'>
+                  <?php
+                     function pageAdd($pageNum){
+                        $pagetmp = $pageNum+1;
+                        if($pageNum < 11)
+                        echo  '<a href="free_board_mg.html?page='.$pageNum.'">'.$pagetmp.'</a>'.'&nbsp&nbsp&nbsp&nbsp';
+                     }
+                  ?>
+               </div>
+             </center>
+         </div>
+      </div>
+   </body>
+</html>

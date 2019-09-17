@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="main.css">
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<title>고객의소리</title>
+		<meta charset="utf-8" />
+		<style>
+		@keyframes textColorAnimation {
+		 0% {  color : blue;}
+		 30% {  color : green;}
+		 100% { color : red;}
+		 }
+		 h1 {font-family : "arial black";
+				 animation-name: textColorAnimation;
+				 animation-duration: 5s;
+				 animation-iteration-count: infinite;
+				 text-align : center;
+				 color : brown;
+		 }
+		 pre {background-color : orange; border-radius : 20px; font-family : "휴먼편지체";}
+		 form {background-color : pink;}
+		 p { color : white; font-family : "휴먼편지체"; text-indent : 1em; font-size : 1em;}
+		 y { color : blue;}
+		 j { font-family : "휴먼편지체";}
+		</style>
+	</head>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#header").load("up_bar.html");
+			$("#footer").load("down.bar.html");
+		});
+	</script>
+	<body background="picture/back4.png">
+	<body>
+		<div id="page-wrapper">
+			<!-- Header -->
+
+			<div id="header">
+			</div>
+			<!-- body -->
+			<div id="body-wrapper">
+				<h1><strong>한걸음 더 가까이</strong></h1>
+				<p>술간에 대한 의견을 듣습니다. 많은 참여 부탁드립니다.</p>
+				<hr>
+				<form action='survay_post.php' name='survay_table' method='post' style="padding:10px">
+					<y>성별 : </y>
+					<input type="radio" name="gender" value="1">
+					<j>남</j>
+					<input type="radio" name="gender" value="2">
+					<j>여</j><br><br>
+
+					<y>호감 메뉴 : </y> <select name="good">
+				<option value="메뉴 선택">메뉴 선택</option>
+				<option value="치즈 김치전">치즈 김치전</option>
+				<option value="무뼈 닭발">무뼈 닭발</option>
+				<option value="치즈 계란말이">치즈 계란말이</option>
+				</select><br><br>
+
+					<y>비호감 메뉴 : </y> <select name="bad">
+				<option value="메뉴 선택">메뉴 선택</option>
+				<option value="치즈 김치전">치즈 김치전</option>
+				<option value="무뼈 닭발">무뼈 닭발</option>
+				<option value="치즈 계란말이">치즈 계란말이</option>
+				</select><br><br>
+
+					<y style="padding:5px">남기고 싶은 말</y><br>
+					<textarea name="content" cols="65" rows="20"></textarea><br />
+					<input type="submit" value="보내기♡" /><br />
+				</form>
+
+			</div>
+			<center>
+				<div id="List" style="background-color: black; width:50%;height:auto;font-size:15px;">
+				</div>
+			</center>
+		</div>
+		</div>
+
+	</body>
+
+</html>
